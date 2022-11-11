@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "socket.io": "^4.5.3"
+    "lsof": "^0.1.0",
+    "node.js": "^0.0.1-security",
+    "socket.io": "^4.5.3",
+    "socket.io-client": "^4.5.3",
+    "sudo": "^1.0.3"
   }
 }

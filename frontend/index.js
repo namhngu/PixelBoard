@@ -5,8 +5,16 @@ const colorInput = document.getElementById('colorInput');
 const gameSize = 600;
 const canva = document.getElementById('canvas');
 
-let canvas, ctx;
+const socket = io("http://localhost:3000", {
+    withCredentials: true,
+    extraHeaders: {
+      "my-custom-header": "abcd"
+    }
+});
 
+//socket.on('init', handleInit);
+
+let canvas, ctx;
 var x;
 var y;
 var paints;
@@ -48,4 +56,8 @@ function isColor(color){
     var s = new Option().style;
     s.color = color;
     return s.color !== '';
-  }
+}
+
+function handleInit(msg) {
+    console.log(msg);
+}
