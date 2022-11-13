@@ -19,6 +19,7 @@ class Radix {
             let index = parseInt(arr[i]);
             if (curr.pointers[index] === undefined) {
                 curr.pointers[index] = new Node();
+                console.log("new bruv made");
             }
             curr = curr.pointers[index];
         }
