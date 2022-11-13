@@ -1,3 +1,5 @@
+
+
 class Node {
     constructor() {
         this.value = null;
@@ -5,7 +7,7 @@ class Node {
     }
 }
 
-export default class Radix {
+class Radix {
     constructor() {
         this.root = new Node("");
     }
@@ -36,3 +38,6 @@ export default class Radix {
         return curr;
     }
 }
+
+const mainTree = new Radix();
+export default mainTree;

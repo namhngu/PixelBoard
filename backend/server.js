@@ -15,7 +15,7 @@ const io = new Server(3000, {
 });
 
 io.on('connection', client => {
-    console.log("ioawhdoihasoi")
+    
 })
 
 export {SETTINGS};

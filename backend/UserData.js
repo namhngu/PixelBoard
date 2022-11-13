@@ -1,6 +1,7 @@
 import RadixTree from "./RadixTree.js";
 import { SETTINGS } from "./server.js"
 const date = new Date();
+const allUsers = RadixTree;
 
 class Value {
     constructor() {
@@ -9,25 +10,27 @@ class Value {
     }
 }
 
-class UserData {
-    allUsers = new RadixTree();
+export default class UserData {
+    constructor(ip) {
+        this.ip = ip;
+    }
 
-    liveUpdate(ip) {
-        if (this.allUsers.find(ip) == null) {
-            this.allUsers.add(ip, new Value());
+    liveUpdate() {
+        if (allUsers.find(this.ip) == null) {
+            allUsers.add(this.ip, new Value());
         }
-        if ((date.getTime - this.allUsers.find(ip).value.lastAccess) >= SETTINGS.TIME_REFRESH) {
-            let user = this.allUsers.find(ip).value;
-            user.paints = Math.min(SETTINGS.MAX_PAINTS, (date.getTime - find(ip).value.lastAccess)/SETTINGS.TIME_REFRESH);
+        if ((date.getTime - allUsers.find(this.ip).value.lastAccess) >= SETTINGS.TIME_REFRESH) {
+            let user = allUsers.find(this.ip).value;
+            user.paints = Math.min(SETTINGS.MAX_PAINTS, (date.getTime - find(this.ip).value.lastAccess)/SETTINGS.TIME_REFRESH);
             user.lastAccess = date.getTime();
         }
     }
 
-    userLeaves(ip) {
-        this.allUsers.find(ip).value.lastAccess = date.getTime();
+    userLeaves() {
+        allUsers.find(this.ip).value.lastAccess = date.getTime();
     }
     
-    getPaints(ip) {
-        return this.this.allUsers.find
+    getPaints() {
+        return allUsers.find(this.ip).value.paints;
     }
 }
