@@ -6,4 +6,5 @@
     "socket.io-client": "^4.5.3",
     "sudo": "^1.0.3"
   }
+  ,"type": "module"
 }
